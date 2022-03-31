@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Button from '../button/button.component';
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
 import FormInput from '../form-inputs/form-inputs.component';
@@ -14,7 +14,7 @@ const defaultFormFields = {
 const SignUp = () => {
     const [formFields, setFormField] = useState(defaultFormFields);
     const { displayName, email, password, confirmPassword } = formFields;
-
+ 
     const resetFormFields = () => {
         setFormField(defaultFormFields)
     }
@@ -42,7 +42,7 @@ const SignUp = () => {
     }
 
     return(
-        <div>
+        <div className='sign-up-container'>
             <h2>Don't have an account ? </h2>
             <span>Sign up with your email and password</span>
             <form onSubmit={submitHandler}>
